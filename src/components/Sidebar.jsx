@@ -1,26 +1,22 @@
-import { Home, User, FolderOpen, BookOpen, Briefcase, Code2, Mail } from 'lucide-react';
+import { Code2, Mail } from 'lucide-react';
 
 const Sidebar = ({ activeSection }) => {
   const navLinks = [
-    { name: 'Home', href: '#home', icon: <Home size={18} /> },
-    { name: 'About', href: '#about', icon: <User size={18} /> },
-    { name: 'Projects', href: '#projects', icon: <FolderOpen size={18} /> },
-    { name: 'Publications', href: '#publications', icon: <BookOpen size={18} /> },
-    { name: 'Experience', href: '#experience', icon: <Briefcase size={18} /> },
+    { index: '00', name: 'Home', href: '#home' },
+    { index: '01', name: 'About', href: '#about' },
+    { index: '02', name: 'Work', href: '#projects' },
+    { index: '03', name: 'Papers', href: '#publications' },
+    { index: '04', name: 'Experience', href: '#experience' },
   ];
 
   return (
     <aside className="sidebar">
-      <div style={{ marginBottom: '3rem' }}>
-        <h1 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', letterSpacing: '-0.02em' }}>
-          Firat <span className="text-gradient">Yalcin</span>, MSc
-        </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', fontWeight: 500 }}>
-          PhD Candidate · Computational Physics
-        </p>
+      <div className="sidebar-intro">
+        <a className="monogram" href="#home" aria-label="Firat Yalcin home">FY</a>
+        <p className="eyebrow">Computational physicist<br />& software engineer</p>
       </div>
 
-      <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <nav className="site-nav" aria-label="Main navigation">
         {navLinks.map((link) => {
           const isActive = link.href === `#${activeSection}`;
           return (
@@ -30,25 +26,20 @@ const Sidebar = ({ activeSection }) => {
               className={`nav-link ${isActive ? 'active' : ''}`}
               aria-current={isActive ? 'page' : undefined}
             >
-              {link.icon}
-              {link.name}
+              <span className="nav-index">{link.index}</span>
+              <span>{link.name}</span>
             </a>
           );
         })}
       </nav>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          <a href="https://github.com/fyalcin" target="_blank" rel="noreferrer" style={{ padding: '0.5rem 0.75rem', borderRadius: '99px', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, background: 'var(--bg-surface)' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-hover)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-surface)' })}>
-            <Code2 size={14} /> GitHub
-          </a>
-          <a href="https://linkedin.com/in/firat-yalcin" target="_blank" rel="noreferrer" style={{ padding: '0.5rem 0.75rem', borderRadius: '99px', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, background: 'var(--bg-surface)' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-hover)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-surface)' })}>
-            <Briefcase size={14} /> LinkedIn
-          </a>
+      <div className="sidebar-footer">
+        <p className="status"><span className="status-dot" /> Open to software roles</p>
+        <div className="social-links">
+          <a href="https://github.com/fyalcin" target="_blank" rel="noreferrer"><Code2 size={14} /> GitHub</a>
+          <a href="https://linkedin.com/in/firat-yalcin" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
-        <a href="mailto:firat.yalcin@univie.ac.at" style={{ padding: '0.5rem 0.75rem', borderRadius: '99px', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem', fontWeight: 600, background: 'var(--bg-surface)', width: 'fit-content' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-hover)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-surface)' })}>
-          <Mail size={14} /> firat.yalcin@univie.ac.at
-        </a>
+        <a className="email-link" href="mailto:firat.yalcin@univie.ac.at"><Mail size={14} /> Email me</a>
       </div>
     </aside>
   );

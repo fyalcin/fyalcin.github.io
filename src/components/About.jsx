@@ -25,27 +25,28 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section">
-      <div style={{ width: '100%' }}>
-        <h2 className="section-title">About <span className="text-gradient">Me</span></h2>
-        <p className="section-subtitle">From Computational Physics to IT Engineering.</p>
+    <section id="about" className="section content-section">
+      <div className="section-header">
+        <p className="section-kicker">01 / Profile</p>
+        <h2 className="section-title">Scientific depth.<br /><em>Practical systems.</em></h2>
+        <p className="section-subtitle">From computational physics to infrastructure and backend engineering.</p>
+      </div>
+      <div className="about-layout">
+        <div className="about-copy">
+          <p>
+            I am a Python-focused backend and automation developer currently finishing my PhD in Computational Materials Physics at the University of Vienna. Over the past seven years, I have built workflow scripts, data-processing pipelines, and tools around large-scale simulations on Linux and HPC systems.
+          </p>
+          <p>
+            My academic journey began with Bachelor and Master degrees in Physics from Middle East Technical University in Ankara. Now, as my PhD concludes, I am transitioning fully into the tech sector in Vienna.
+          </p>
+          <p className="coordinates">48.2082° N&nbsp;&nbsp; 16.3738° E&nbsp;&nbsp; /&nbsp;&nbsp; UTC+1</p>
+        </div>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
-          <div className="glass-panel" style={{ gridColumn: '1 / -1' }}>
-            <p style={{ fontSize: '1.125rem', color: 'var(--text-secondary)' }}>
-              I am a Python-focused backend and automation developer currently finishing up my PhD in Computational Materials Physics at the University of Vienna. Over the past 7 years, I have specialized in building workflow scripts, data-processing pipelines, and tools around large-scale simulations on Linux and HPC systems.
-              <br/><br/>
-              My academic journey began with Bachelor and Master degrees in Physics from Middle East Technical University (METU) in Ankara, Turkey, before I moved to Austria. Now, as my PhD concludes, I am embracing my true passion for coding, AI, and IT, and transitioning fully into the tech sector in Vienna.
-            </p>
-          </div>
-          
+        <div className="skills-grid">
           {skills.map((skill, index) => (
-            <div key={index} className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ background: 'var(--accent-light)', padding: '0.75rem', borderRadius: '12px', width: 'fit-content' }}>
-                {skill.icon}
-              </div>
-              <h3 style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>{skill.title}</h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>{skill.desc}</p>
+            <div key={index} className="skill-item">
+              <div className="skill-icon">{skill.icon}</div>
+              <div><h3>{skill.title}</h3><p>{skill.desc}</p></div>
             </div>
           ))}
         </div>

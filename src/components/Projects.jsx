@@ -21,46 +21,39 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section">
-      <div style={{ width: '100%' }}>
-        <h2 className="section-title">Featured <span className="text-gradient">Projects</span></h2>
-        <p className="section-subtitle">Tools developed from scratch to accelerate materials modeling.</p>
+    <section id="projects" className="section content-section">
+      <div className="section-header section-header-row">
+        <div><p className="section-kicker">02 / Selected work</p><h2 className="section-title">Systems built<br /><em>from first principles.</em></h2></div>
+        <p className="section-subtitle">Open-source tools developed to accelerate materials modeling and make complex workflows repeatable.</p>
+      </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        <div className="project-list">
           {projects.map((project, index) => (
-            <div key={index} className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-                <div>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem', color: 'var(--text-primary)' }}>{project.title}</h3>
-                  <p style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{project.subtitle}</p>
+            <article key={index} className="project-item">
+              <div className="project-number">0{index + 1}</div>
+              <div className="project-body">
+                <div className="project-heading">
+                  <div><h3>{project.title}</h3><p>{project.subtitle}</p></div>
+                  <span className="project-year">{index === 0 ? '2024' : '2026'}</span>
                 </div>
-                <div style={{ display: 'flex', gap: '0.75rem' }}>
+                <p className="project-description">{project.description}</p>
+                <div className="project-footer">
+                  <div className="tag-list">
+                    {project.tags.map((tag, i) => <span key={i}>{tag}</span>)}
+                  </div>
+                  <div className="project-links">
                   {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer" style={{ padding: '0.5rem', borderRadius: '8px', background: 'var(--bg-sidebar)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: 500, transition: 'background-color 0.2s' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-hover)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--bg-sidebar)' })}>
-                      <Code2 size={16} className="text-accent" /> Code
-                    </a>
+                    <a href={project.github} target="_blank" rel="noreferrer"><Code2 size={16} /> Code</a>
                   )}
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noreferrer" style={{ padding: '0.5rem', borderRadius: '8px', background: 'var(--accent-primary)', color: '#ffffff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', transition: 'background-color 0.2s' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--accent-secondary)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--accent-primary)' })}>
-                      <ExternalLink size={16} /> Paper
-                    </a>
+                    <a href={project.link} target="_blank" rel="noreferrer">Paper <ExternalLink size={16} /></a>
                   )}
+                  </div>
                 </div>
               </div>
-              
-              <p style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
-              
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {project.tags.map((tag, i) => (
-                  <span key={i} style={{ padding: '0.25rem 0.75rem', borderRadius: '99px', fontSize: '0.75rem', background: 'var(--accent-light)', border: '1px solid var(--border-color)', color: 'var(--text-tertiary)', fontWeight: 500 }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
     </section>
   );
 };

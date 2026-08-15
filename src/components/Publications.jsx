@@ -1,4 +1,4 @@
-import { BookOpen, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const Publications = () => {
   const publications = [
@@ -29,36 +29,25 @@ const Publications = () => {
   ];
 
   return (
-    <section id="publications" className="section">
-      <div style={{ width: '100%' }}>
-        <h2 className="section-title">Research & <span className="text-gradient">Publications</span></h2>
-        <p className="section-subtitle">Academic contributions to computational materials physics.</p>
+    <section id="publications" className="section content-section">
+      <div className="section-header section-header-row">
+        <div><p className="section-kicker">03 / Research</p><h2 className="section-title">A bibliography<br /><em>in progress.</em></h2></div>
+        <p className="section-subtitle">Academic contributions to computational materials physics. Each DOI links directly to the publisher.</p>
+      </div>
         
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div className="publication-list">
           {publications.map((pub, index) => (
-            <div key={index} className="glass-panel" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-              <div style={{ background: 'var(--accent-light)', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                <BookOpen size={24} className="text-accent" />
+            <article key={index} className="publication-item">
+              <span className="publication-number">0{index + 1}</span>
+              <div className="publication-body">
+                <h3>{pub.title}</h3>
+                <p>{pub.authors}</p>
+                <span className="publication-journal">{pub.journal} · {pub.year}</span>
               </div>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', lineHeight: 1.4, color: 'var(--text-primary)' }}>{pub.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem', fontSize: '0.95rem' }}>{pub.authors}</p>
-                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginTop: '1rem' }}>
-                  <span style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.875rem' }}>
-                    {pub.journal} ({pub.year})
-                  </span>
-                  
-                  <div style={{ display: 'flex', gap: '0.75rem', marginLeft: 'auto' }}>
-                    <a href={pub.link} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.875rem', color: 'var(--text-secondary)', fontWeight: 500, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}>
-                      <ExternalLink size={14} /> DOI
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <a className="publication-link" href={pub.link} target="_blank" rel="noreferrer">DOI <ExternalLink size={14} /></a>
+            </article>
           ))}
         </div>
-      </div>
     </section>
   );
 };

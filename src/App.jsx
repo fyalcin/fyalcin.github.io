@@ -41,8 +41,8 @@ function App() {
         <Publications />
         <Experience />
         
-        <footer style={{ padding: '2rem 0', textAlign: 'center', color: 'var(--text-tertiary)', fontSize: '0.875rem' }}>
-          <p>© {new Date().getFullYear()} Firat Yalcin. Designed in Vienna, Austria.</p>
+        <footer className="site-footer">
+          <p><span>FY / {new Date().getFullYear()}</span> Designed in Vienna, Austria.</p>
         </footer>
       </main>
 
