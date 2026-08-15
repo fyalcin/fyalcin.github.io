@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -44,6 +45,16 @@ function App() {
           <p>© {new Date().getFullYear()} Firat Yalcin. Designed in Vienna, Austria.</p>
         </footer>
       </main>
+
+      <button
+        type="button"
+        className="back-to-top"
+        aria-label="Navigate to top"
+        title="Navigate to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <ArrowUp size={20} aria-hidden="true" />
+      </button>
     </div>
   );
 }

@@ -16,6 +16,7 @@ export default [
       globals: {
         document: 'readonly',
         IntersectionObserver: 'readonly',
+        window: 'readonly',
       },
     },
     plugins: {
