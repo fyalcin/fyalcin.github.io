@@ -42,6 +42,11 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline: 3px solid var(--accent-secondary);
+  outline-offset: 3px;
+}
+
 /* Utilities */
 .text-gradient {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
@@ -139,6 +144,27 @@ a {
   color: var(--accent-primary);
 }
 
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.button-secondary {
+  color: var(--accent-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-primary);
+}
+
+.button-secondary:hover {
+  color: var(--accent-primary);
+  background: var(--accent-light);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -159,12 +185,44 @@ a {
     width: 100%;
     position: relative;
     height: auto;
+    padding: 1rem;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar > div:first-child {
+    margin-bottom: 1rem !important;
+  }
+
+  .sidebar nav {
+    flex: none !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin;
+  }
+
+  .nav-link {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .sidebar > div:last-child {
+    margin-top: 1rem;
   }
   
   .main-content {
     margin-left: 0;
     padding: 0 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

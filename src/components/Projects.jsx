@@ -1,4 +1,3 @@
-import React from 'react';
 import { ExternalLink, Code2 } from 'lucide-react';
 
 const Projects = () => {

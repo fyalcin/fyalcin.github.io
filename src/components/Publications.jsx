@@ -1,5 +1,4 @@
-import React from 'react';
-import { BookOpen, ExternalLink, FileText } from 'lucide-react';
+import { BookOpen, ExternalLink } from 'lucide-react';
 
 const Publications = () => {
   const publications = [
@@ -10,7 +9,6 @@ const Publications = () => {
       year: "2026",
       doi: "10.1038/s41524-026-01983-5",
       link: "https://www.nature.com/articles/s41524-026-01983-5",
-      pdf: "/s41524-026-01983-5_reference (1).pdf"
     },
     {
       title: "SurfFlow: High-throughput surface energy calculations for arbitrary crystals",
@@ -19,7 +17,6 @@ const Publications = () => {
       year: "2024",
       doi: "10.1016/j.commatsci.2024.112799",
       link: "https://www.sciencedirect.com/science/article/pii/S092702562400020X",
-      pdf: "/1-s2.0-S092702562400020X-main.pdf"
     },
     {
       title: "High-throughput generation of potential energy surfaces for solid interfaces",
@@ -28,7 +25,6 @@ const Publications = () => {
       year: "2022",
       doi: "10.1016/j.commatsci.2022.111302",
       link: "https://www.sciencedirect.com/science/article/pii/S0927025622000969",
-      pdf: "/1-s2.0-S0927025622000969-main.pdf"
     }
   ];
 

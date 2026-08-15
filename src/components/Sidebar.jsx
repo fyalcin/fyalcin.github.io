@@ -1,4 +1,3 @@
-import React from 'react';
 import { Home, User, FolderOpen, BookOpen, Briefcase, Code2, Mail } from 'lucide-react';
 
 const Sidebar = ({ activeSection }) => {
@@ -29,6 +28,7 @@ const Sidebar = ({ activeSection }) => {
               key={link.name} 
               href={link.href}
               className={`nav-link ${isActive ? 'active' : ''}`}
+              aria-current={isActive ? 'page' : undefined}
             >
               {link.icon}
               {link.name}

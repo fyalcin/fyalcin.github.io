@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -19,14 +18,14 @@ function App() {
           }
         });
       },
-      { rootMargin: '-40% 0px -60% 0px' }
+      { rootMargin: '-35% 0px -55% 0px' }
     );
 
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
     };
   }, []);
 

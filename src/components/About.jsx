@@ -1,4 +1,3 @@
-import React from 'react';
 import { Terminal, Database, Server, Cpu } from 'lucide-react';
 
 const About = () => {

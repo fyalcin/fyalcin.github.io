@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,6 +21,9 @@ const Hero = () => {
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#projects" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--accent-primary)', color: '#ffffff', padding: '0.875rem 1.5rem', borderRadius: '8px', fontWeight: 600, transition: 'all 0.2s', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }} onMouseOver={(e) => Object.assign(e.currentTarget.style, { background: 'var(--accent-secondary)' })} onMouseOut={(e) => Object.assign(e.currentTarget.style, { background: 'var(--accent-primary)' })}>
               View Projects <ArrowRight size={18} />
+            </a>
+            <a href="mailto:firat.yalcin@univie.ac.at" className="button button-secondary">
+              Get in Touch <Mail size={18} />
             </a>
           </div>
         </div>
